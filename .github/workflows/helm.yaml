@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: read  # for dorny/paths-filter to fetch a list of changed files
 
-    if: github.repository == 'kubernetes/ingress-nginx'
+    # if: github.repository == 'kubernetes/ingress-nginx'
 
     outputs:
       docs: ${{ steps.filter.outputs.docs }}
@@ -61,8 +61,6 @@ jobs:
 
     needs:
       - changes
-
-    if: ${{ needs.changes.outputs.charts == 'true' }}
 
     steps:
       - name: Checkout master
